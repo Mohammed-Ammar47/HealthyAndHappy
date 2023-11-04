@@ -87,7 +87,7 @@ export default function Recipes() {
       </FavouritesProvider>
       {/* Section 1: title  */}
       <div className=" flex flex-col justify-center items-center space-y-5 py-6">
-        <p className="text-[44px]/[44px] font-bold font-Playfair-Display text-center ">
+        <p className="text-4xl/9 sm:text-[44px]/[44px] font-bold font-Playfair-Display text-center ">
           Recipes{" "}
         </p>
         <p className="text-base font-medium font-Roboto-Slab sm:w-96 text-center ">
@@ -101,7 +101,7 @@ export default function Recipes() {
       {/* Section 3: Recipes  */}
       <div className="px-5 flex flex-col py-12 justify-center divide-y-2 divide-gray-50  sm:px-[102px]">
         <div className="flex flex-row justify-between items-center mb-2 ">
-          <p className="text-[22px]/[24px] sm:text-[28px]/[30px] font-medium py-2 ">
+          <p className="text-[22px]/[24px] sm:text-[28px]/[30px] font-medium py-2  font-Playfair-Display">
             Explore Recipes
           </p>
           <SelectFilter selected={selected} setSelected={setSelected} />
