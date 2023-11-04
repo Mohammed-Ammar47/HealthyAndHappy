@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import FavouritesProvider from "../contexts/FavouritesContext";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -10,36 +10,38 @@ export default function Home() {
     <>
       {/* Section 1  */}
       <div
-        className={`bg-[url(https://firebasestorage.googleapis.com/v0/b/healthy-and-happy-edf1e.appspot.com/o/Assets%2Ftop-view-table-full-delicious-food-composition.jpg?alt=media&token=094731ef-f7d0-4f6a-bf9a-08e9f8c8d87d)] bg-cover sm:h-screen `}
+        className={`bg-[url(https://firebasestorage.googleapis.com/v0/b/healthy-and-happy-edf1e.appspot.com/o/Assets%2Ftop-view-table-full-delicious-food-composition.jpg?alt=media&token=094731ef-f7d0-4f6a-bf9a-08e9f8c8d87d)] bg-cover h-screen `}
       >
-        <Header />
-        <div className="flex flex-col justify-start font-Playfair-Display text-white mt-24 mx-[186px] w-[415px] space-y-4">
-          <p className=" text-5xl/none font-bold backdrop-blur-sm w-fit">
+        <FavouritesProvider>
+          <Header />
+        </FavouritesProvider>
+        <div className="flex flex-col text-center sm:text-start font-Playfair-Display text-white mt-12 sm:mt-24 mx-3 sm:mx-[186px] sm:w-[415px] space-y-4">
+          <p className=" text-3xl sm:text-5xl/none font-bold backdrop-blur-[1px] w-">
             Real . Fresh . Meal
           </p>
-          <p className="text-3xl font-medium backdrop-blur-[2px] w-[360px]">
+          <p className="text-2xl sm:text-3xl font-medium backdrop-blur-[1px] sm:w-[360px]">
             Introduce your appetite to Novelty cuisines
           </p>
         </div>
       </div>
-      <div className=" bg-[#CFE6D7] pt-16 pb-12 space-y-24">
+      <div className=" bg-[#CFE6D7] pt-8 pb-6 sm:pt-16 sm:pb-12 space-y-12 sm:space-y-24">
         {/* Section 2  */}
-        <div className="mx-[186px] flex flex-row  space-x-[86px]">
+        <div className="mx-5 sm:mx-[186px] flex flex-col-reverse sm:flex-row  sm:space-x-[86px]">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/healthy-and-happy-edf1e.appspot.com/o/Assets%2Fbottom-view-white-round-plate-black-pepper-small-bowl-oil-bottle-coriander-garlic-dill-green-onion-table.jpg?alt=media&token=5f3b2f9f-c807-49d3-b5dc-4b533dcc9c7e"
-            className="w-[376px] rounded-xl shadow-[8px_8px_4px_0px_#44614D] "
+            className="sm:w-[376px] rounded-xl shadow-[8px_8px_4px_0px_#44614D] "
           />
-          <div className="flex flex-col w-[400px]  py-9">
-            <div className="flex flex-col space-y-2">
-              <p className="text-[32px] font-bold font-Libre-Franklin">
+          <div className="flex flex-col sm:w-[400px] text-center sm:text-start items-center sm:items-start py-4 sm:py-9">
+            <div className="flex flex-col  space-y-2">
+              <p className="text-[28px] sm:text-[32px] font-bold font-Libre-Franklin">
                 Learn New Recipes
               </p>
-              <p className="text-2xl font-medium font-Libre-Franklin ">
+              <p className="text-xl sm:text-2xl font-medium font-Libre-Franklin ">
                 Try new ingredients and blends
               </p>
               <p className="text-base font-normal font-Roboto-Slab">
                 Learn new recipes and taste delicious and healthy dishes with
-                ingredients from all around world, u can find quick and easy
+                ingredients from all around world, you can find quick and easy
                 recipes or Lengthy and detail for cooking lovers. You will find
                 recipes for whatever please your appetite: lunch meals, drinks,
                 soups, desserts, sandwiches, salads and more.
@@ -56,13 +58,13 @@ export default function Home() {
           </div>
         </div>
         {/* Section 3  */}
-        <div className="mx-[186px] flex flex-row  space-x-[86px]">
-          <div className="flex flex-col  py-9">
+        <div className="mx-5 sm:mx-[186px] flex flex-col sm:flex-row  sm:space-x-[86px]">
+          <div className="flex flex-col text-center sm:text-start items-center sm:items-start py-4 sm:py-9">
             <div className="flex flex-col space-y-2">
-              <p className="text-[32px] font-bold font-Libre-Franklin">
+              <p className="text-[28px] sm:text-[32px] font-bold font-Libre-Franklin">
                 Worldwide cuisines
               </p>
-              <p className="text-2xl font-medium font-Libre-Franklin ">
+              <p className="text-xl sm:text-2xl font-medium font-Libre-Franklin ">
                 Acquaint with cuisines from all around the world
               </p>
               <p className="text-base font-normal font-Roboto-Slab">
@@ -84,20 +86,20 @@ export default function Home() {
           </div>
           <img
             src="https://firebasestorage.googleapis.com/v0/b/healthy-and-happy-edf1e.appspot.com/o/Assets%2FCollage%20of%20cultural%20cuisines.png?alt=media&token=85542962-9cbd-4009-9ac4-d11b49f0d0f9"
-            className="w-[376px] h-[376px] rounded-xl shadow-[-8px_8px_4px_0px_#44614D] "
+            className="sm:w-[376px] sm:h-[376px] rounded-xl shadow-[-8px_8px_4px_0px_#44614D] "
           />
         </div>
         {/* Section 4  */}
-        <div className="mx-[186px] flex flex-col justify-center items-center space-y-4 ">
-          <p className="text-[32px] font-bold font-Libre-Franklin text-center">
+        <div className="mx-5 sm:mx-[186px] flex flex-col justify-center items-center space-y-2 sm:space-y-4 ">
+          <p className="text-[28px] sm:text-[32px] font-bold font-Libre-Franklin text-center">
             Food Blogs
           </p>
-          <p className="text-base font-normal font-Roboto-Slab w-[400px] text-center">
+          <p className="text-base font-normal font-Roboto-Slab sm:w-[400px] text-center">
             Gain insights with our blogs and articles in various food and
             cooking related topics
           </p>
-          <div className="flex flex-row space-x-2.5">
-            <div className="bg-white flex flex-col w-[296px] h-[296px] space-y-4 text-center rounded-3xl items-center p-5">
+          <div className="flex flex-col sm:flex-row space-y-2.5 sm:space-x-2.5">
+            <div className="bg-white flex flex-col sm:w-[296px] sm:h-[296px] space-y-2 sm:space-y-4 text-center rounded-3xl items-center p-5">
               <p className="text-2xl font-medium font-Roboto-Slab ">
                 Cooking Tips
               </p>
@@ -110,7 +112,7 @@ export default function Home() {
                 help you improve your cooking skills.
               </p>
             </div>
-            <div className="bg-white flex flex-col w-[296px] h-[296px] space-y-4 text-center rounded-3xl items-center p-5">
+            <div className="bg-white flex flex-col sm:w-[296px] sm:h-[296px] space-y-2 sm:space-y-4 text-center rounded-3xl items-center p-5">
               <p className="text-2xl font-medium font-Roboto-Slab ">
                 Food and Nutrition
               </p>
@@ -123,7 +125,7 @@ export default function Home() {
                 dietary meals and their benefits
               </p>
             </div>
-            <div className="bg-white flex flex-col w-[296px] h-[296px] space-y-4 text-center rounded-3xl items-center p-5">
+            <div className="bg-white flex flex-col sm:w-[296px] sm:h-[296px] space-y-2 sm:space-y-4 text-center rounded-3xl items-center p-5">
               <p className="text-2xl font-medium font-Roboto-Slab ">
                 Ingredient Spotlights{" "}
               </p>
@@ -137,24 +139,27 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <button className="font-Libre-Franklin text-base h-8 bg-[#238C69] text-white rounded-md w-fit px-2.5 mt-4 hover:bg-white hover:text-[#238C69] hover:ring-2 hover:ring-[#238C69]">
+          <button
+            onClick={() => navigate("/blogs")}
+            className="font-Libre-Franklin text-base h-8 bg-[#238C69] text-white rounded-md w-fit px-2.5 mt-4 hover:bg-white hover:text-[#238C69] hover:ring-2 hover:ring-[#238C69]"
+          >
             Read Blogs
           </button>
         </div>
         {/* Section 5  */}
-        <div className="mx-[186px] flex flex-col justify-center items-center space-y-4 ">
-          <p className="text-[32px] font-bold font-Libre-Franklin text-center">
+        <div className="mx-5 sm:mx-[186px] flex flex-col justify-center items-center space-y-4 ">
+          <p className="text-[28px] sm:text-[32px] font-bold font-Libre-Franklin text-center">
             About Us
           </p>
-          <p className="text-base font-normal font-Roboto-Slab w-[400px] text-center">
+          <p className="text-base font-normal font-Roboto-Slab sm:w-[400px] text-center">
             Our mission is interduce you to the world of cooking and
             intricacies, allowing you to become a better cook enjoying what our
             world have to offer.
           </p>
-          <p className="text-2xl font-medium font-Libre-Franklin text-center">
+          <p className="text-xl font-medium font-Libre-Franklin text-center">
             Our Members
           </p>
-          <div className="flex flex-row space-x-4">
+          <div className="flex flex-col sm:flex-row space-y-2 sm:space-x-4">
             <img
               src="https://firebasestorage.googleapis.com/v0/b/healthy-and-happy-edf1e.appspot.com/o/Assets%2Fman%20(1).png?alt=media&token=53f18010-9e98-4757-92ce-7525c823926d"
               className="w-[138px] h-[138px]"
@@ -168,7 +173,10 @@ export default function Home() {
               className="w-[138px] h-[138px]"
             />
           </div>
-          <button className="font-Libre-Franklin text-base h-8 bg-[#238C69] text-white rounded-md w-fit px-2.5 mt-4 hover:bg-white hover:text-[#238C69] hover:ring-2 hover:ring-[#238C69]">
+          <button
+            onClick={() => navigate("/about-us")}
+            className="font-Libre-Franklin text-base h-8 bg-[#238C69] text-white rounded-md w-fit px-2.5 mt-4 hover:bg-white hover:text-[#238C69] hover:ring-2 hover:ring-[#238C69]"
+          >
             Read More
           </button>
         </div>
@@ -177,4 +185,5 @@ export default function Home() {
       <Footer />
     </>
   );
+  s;
 }

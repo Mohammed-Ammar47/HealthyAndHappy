@@ -1,38 +1,37 @@
 import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { useAuthStatus } from "../hooks/useAuthStatus";
+import { useFavourite } from "../contexts/FavouritesContext";
 import { useNavigate, useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
-import Spinner from "../components/Spinner";
 import { db } from "../Firebase";
-import DOMPurify from "dompurify";
-import { PiHandsClappingFill } from "react-icons/pi";
-import CommentProvider, { useComment } from "../contexts/commentContext";
-import CommentSection from "../components/commentComponents/ReviewSection";
-import RatingScorecard from "../components/RatingScorecard";
-import { HiStar, HiLogin } from "react-icons/hi";
-import { useAuthStatus } from "../hooks/useAuthStatus";
+import Spinner from "../components/Spinner";
+import Header from "../components/Header";
 import AddToFavourites from "../components/bookmarkComponents/AddToFavourites";
-import { useFavourite } from "../contexts/FavouritesContext";
+import { HiLogin, HiStar } from "react-icons/hi";
+import { PiHandsClappingFill } from "react-icons/pi";
+import RatingScorecard from "../components/RatingScorecard";
+import CommentProvider from "../contexts/commentContext";
+import CommentSection from "../components/commentComponents/ReviewSection";
+import Footer from "../components/Footer";
+import DOMPurify from "dompurify";
 
-export default function RecipePage() {
-  const [recipe, setRecipe] = useState();
+export default function CuisinesPage() {
+  const [cuisine, setCuisine] = useState();
   const [loading, setLoading] = useState(true);
   const [ratingAverage, setRatingAverage] = useState(0);
   const [hasRated, setHasRated] = useState(false);
-  const { loggedIn, loggedInUser, checkingStatus, lUser } = useAuthStatus();
+  const { loggedIn, loggedInUser, checkingStatus } = useAuthStatus();
   const { setBookmarked, user, loadingUser } = useFavourite();
   const param = useParams();
   const navigate = useNavigate();
   const rating = [1, 2, 3, 4, 5];
-
   useEffect(() => {
     async function fetchRecipe() {
       try {
-        const docRef = doc(db, "Recipes", param.recipeId);
+        const docRef = doc(db, "Cuisines", param.cuisineId);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-          setRecipe(docSnap.data());
+          setCuisine(docSnap.data());
           const ratings = docSnap.data().ratings;
           setLoading(false);
           {
@@ -59,7 +58,7 @@ export default function RecipePage() {
     {
       !loadingUser && !checkingStatus && fetchRecipe();
     }
-  }, [param.recipeId, checkingStatus, loadingUser, user]);
+  }, [param.cuisineId, checkingStatus, loadingUser, user]);
 
   if (loading) {
     return <Spinner />;
@@ -74,19 +73,22 @@ export default function RecipePage() {
             {/* Section 1  */}
             <div className="flex flex-col justify-start  space-y-4 py-6 ">
               <p className="flex flex-row  text-[44px]/[44px] font-bold font-Playfair-Display text-start ">
-                {recipe.title}{" "}
+                {cuisine.title}{" "}
                 <AddToFavourites
-                  imageUrl={recipe.imageUrl}
-                  id={param.recipeId}
+                  imageUrl={cuisine.imageUrl}
+                  id={param.cuisineId}
                 />
               </p>
-              <div className="bg-white p-2 rounded-full flex flex-row w-fit text-[#238C69] boxShadow">
+              <div className="bg-white p-1.5 rounded-3xl flex flex-row w-fit text-[#238C69] boxShadow">
                 <p className="text-base/tight py-1 my-0.5 font-medium">Tags:</p>
-                <ul className="flex flex-row w-fit flex-wrap">
-                  {recipe.tags.map((tag, index) => (
+                <ul className="flex flex-row flex-wrap w-fit ">
+                  <li className="drop-shadow-[0_3px_5px_rgba(0,0,0,0.5)] text-base/[18px] ml-2 my-1 px-2 py-1 h-8 flex items-center justify-center font-medium bg-white rounded-full">
+                    {cuisine.culture}
+                  </li>
+                  {cuisine.tags.map((tag, index) => (
                     <li
                       key={index}
-                      className="drop-shadow-[0_3px_5px_rgba(0,0,0,0.5)] text-base/[18px] mx-2 my-1 px-2 py-1 font-medium bg-white rounded-full"
+                      className="drop-shadow-[0_3px_5px_rgba(0,0,0,0.5)] text-base/[18px] mx-2 my-1 px-2 py-1 flex items-center h-8 font-medium bg-white rounded-full"
                     >
                       {tag}
                     </li>
@@ -113,15 +115,15 @@ export default function RecipePage() {
             {/* Section 2  */}
             <div className="flex flex-col space-y-2">
               <p className="text-[32px] font-medium font-Libre-Franklin">
-                About the {recipe.title}
+                About the {cuisine.title}
               </p>
               <p className="text-base font-normal font-Roboto-Slab w-[550px] text-start ">
-                {recipe.overview}
+                {cuisine.overview}
               </p>
             </div>
           </div>
           <img
-            src={recipe.imageUrl}
+            src={cuisine.imageUrl}
             className="h-96 w-96 ml-12 object-cover rounded-2xl shadow-[-4px_4px_4px_0px_#44614D]"
           />
         </div>
@@ -130,30 +132,30 @@ export default function RecipePage() {
           <div className="bg-white rounded-xl p-2 divide-y-[1px] w-[800px] boxShadow">
             <div className="space-y-3 p-3">
               <p className="text-2xl font-medium font-Libre-Franklin">
-                The recipe for {recipe.title}
+                The recipe for {cuisine.title}
               </p>
               <div>
                 <ul className="flex flex-row space-x-8">
                   <li className="flex flex-col justify-center space-y-2 font-Libre-Franklin text-base">
                     <p className="text-[#238C69] font-semibold">Prep Time</p>
-                    <p>{recipe.duration.prepTime} mins</p>
+                    <p>{cuisine.duration.prepTime} mins</p>
                   </li>
-                  {recipe.duration.cookTime > 0 && (
+                  {cuisine.duration.cookTime > 0 && (
                     <li className="flex flex-col justify-center space-y-1 font-Libre-Franklin text-base">
                       <p className="text-[#238C69] font-semibold">Cook Time</p>
-                      <p>{recipe.duration.cookTime} mins</p>
+                      <p>{cuisine.duration.cookTime} mins</p>
                     </li>
                   )}
-                  {recipe.servings > 0 && (
+                  {cuisine.servings > 0 && (
                     <li className="flex flex-col justify-center space-y-1 font-Libre-Franklin text-base">
                       <p className="text-[#238C69] font-semibold">Servings</p>
-                      <p>{recipe.servings} servings</p>
+                      <p>{cuisine.servings} servings</p>
                     </li>
                   )}
-                  {recipe.yield !== "" && (
+                  {cuisine.yield !== "" && (
                     <li className="flex flex-col justify-center space-y-1 font-Libre-Franklin text-base">
                       <p className="text-[#238C69] font-semibold">Yield</p>
-                      <p>{recipe.yield}</p>
+                      <p>{cuisine.yield}</p>
                     </li>
                   )}
                 </ul>
@@ -164,7 +166,7 @@ export default function RecipePage() {
                 Ingredients
               </p>
               <ul className="grid grid-cols-2 gap-3">
-                {recipe.ingredients.map((ing, index) => (
+                {cuisine.ingredients.map((ing, index) => (
                   <li key={index}>{ing}</li>
                 ))}
               </ul>
@@ -177,7 +179,7 @@ export default function RecipePage() {
             How to cook it
           </p>
           <ul className="space-y-10 ">
-            {recipe.method.map((step, index) => (
+            {cuisine.method.map((step, index) => (
               <li key={index} className="flex flex-row justify-between">
                 <div className="w-[600px]  space-y-2">
                   <p className="text-2xl font-medium font-Libre-Franklin flex flex-row space-x-3">
@@ -214,7 +216,7 @@ export default function RecipePage() {
             <PiHandsClappingFill className="text-4xl iconFlip text-[#238C69] mx-1" />
           </div>
           <img
-            src={recipe.result.img}
+            src={cuisine.result.img}
             className="w-[500px] aspect-[3/2] object-cover rounded-2xl mx-8 shadow-[-4px_4px_4px_0px_#44614D]"
           />
         </div>
@@ -229,8 +231,8 @@ export default function RecipePage() {
           !hasRated && (
             <RatingScorecard
               setHasRated={setHasRated}
-              contentPage={"Recipes"}
-              paramId={param.recipeId}
+              contentPage={"Cuisines"}
+              paramId={param.cuisineId}
             />
           )
         ) : (
@@ -246,7 +248,7 @@ export default function RecipePage() {
         )}
 
         <div>
-          <CommentProvider contentPage={"Recipes"} paramId={param.recipeId}>
+          <CommentProvider contentPage={"Cuisines"} paramId={param.cuisineId}>
             <CommentSection />
           </CommentProvider>
         </div>

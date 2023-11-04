@@ -8,7 +8,12 @@ import ContactUs from "./pages/ContactUs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "reactjs-popup/dist/index.css";
-import Update from "./Update";
+// import Update from "./Update";
+import FavouritesProvider from "./contexts/FavouritesContext";
+import Cuisines from "./pages/Cuisines";
+import CuisinesPage from "./pages/CuisinesPage";
+import Blogs from "./pages/Blogs";
+import BlogPage from "./pages/BlogPage";
 
 function App() {
   return (
@@ -17,11 +22,35 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/recipes" element={<Recipes />} />
-          <Route path="/recipes/:recipeId" element={<RecipePage />} />
+          <Route path="/cuisines" element={<Cuisines />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route
+            path="/recipes/:recipeId"
+            element={
+              <FavouritesProvider>
+                <RecipePage />
+              </FavouritesProvider>
+            }
+          />
+          <Route
+            path="/cuisines/:cuisineId"
+            element={
+              <FavouritesProvider>
+                <CuisinesPage />
+              </FavouritesProvider>
+            }
+          />
+          <Route
+            path="/blogs/:blogId"
+            element={
+              <FavouritesProvider>
+                <BlogPage />
+              </FavouritesProvider>
+            }
+          />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/s" element={<RecipePage />} />
-          <Route path="/update" element={<Update />} />
+          {/* <Route path="/update" element={<Update />} /> */}
         </Routes>
       </BrowserRouter>
       <ToastContainer

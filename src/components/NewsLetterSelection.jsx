@@ -6,11 +6,12 @@ import { toast } from "react-toastify";
 import { db } from "../Firebase";
 import MoonLoader from "react-spinners/MoonLoader";
 import Spinner from "./Spinner";
+import FormSubmitButton from "./FormSubmitButton";
 
 export default function NewsLetterSelection() {
   const [selected, setSelectedNewsletter] = useState([""]);
   const [loading, setLoading] = useState(true);
-  const [subscriptionLoading, setSubscriptionLoading] = useState(false);
+  const [submitLoading, setSubmitLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -40,6 +41,7 @@ export default function NewsLetterSelection() {
   }
   async function onSubmit(e) {
     e.preventDefault();
+    setSubmitLoading(true);
     try {
       const auth = getAuth();
       const userId = auth.currentUser.uid;
@@ -47,12 +49,12 @@ export default function NewsLetterSelection() {
       await updateDoc(docRef, {
         subscriptions: selected,
       });
-      setSubscriptionLoading(false);
       toast.success("Subscribed");
     } catch (error) {
       toast.error("error");
       console.log(error);
     }
+    setSubmitLoading(false);
   }
   return (
     <>
@@ -136,12 +138,11 @@ export default function NewsLetterSelection() {
               </p>
             </div>
           </div>
-          <button
-            className="font-Libre-Franklin text-base h-10 bg-[#238C69] font-medium text-white rounded-md w-full px-2.5  mt-2 hover:bg-white hover:text-[#238C69] hover:ring-2 hover:ring-[#238C69] active:ring-offset-2"
-            type="submit"
-          >
-            Subscribe{" "}
-          </button>
+          <FormSubmitButton
+            customStyle={"h-10 mt-2"}
+            label={"Subscribes"}
+            submitLoading={submitLoading}
+          />
         </form>
       )}
     </>

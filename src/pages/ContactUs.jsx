@@ -13,6 +13,8 @@ import NewsLetterSelection from "../components/NewsLetterSelection";
 import Spinner from "../components/Spinner";
 import Footer from "../components/Footer";
 import OAuth from "../components/OAuth";
+import { toast } from "react-toastify";
+import FavouritesProvider from "../contexts/FavouritesContext";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -20,7 +22,7 @@ export default function ContactUs() {
     email: "",
     password: "",
   });
-
+  const [loading, setLoading] = useState(false);
   const { loggedIn, checkingStatus } = useAuthStatus();
   console.log(loggedIn);
   function handleChange(e) {
@@ -28,6 +30,7 @@ export default function ContactUs() {
   }
   async function submitForm(e) {
     e.preventDefault();
+    setLoading(true);
     try {
       const auth = getAuth();
       const userCredential = await createUserWithEmailAndPassword(
@@ -37,18 +40,20 @@ export default function ContactUs() {
       );
       const user = userCredential.user;
       updateProfile(auth.currentUser, {
-        fullName: formData.fullName,
+        displayName: formData.fullName,
         id: user.uid,
       });
       const formDataCopy = { ...formData, id: user.uid };
       delete formDataCopy.password;
       formDataCopy.timestamp = serverTimestamp();
       formDataCopy.subscriptions = [];
+      formDataCopy.favourites = [];
       setDoc(doc(db, "users", user.uid), formDataCopy);
       toast.success("Successfully logged in");
     } catch (error) {
       console.log(error);
     }
+    setLoading(true);
   }
 
   if (checkingStatus) {
@@ -58,7 +63,9 @@ export default function ContactUs() {
   return (
     <div className={`w-screen bg-[#e9ffea76] `}>
       {/* Header  */}
-      <Header />
+      <FavouritesProvider>
+        <Header />
+      </FavouritesProvider>{" "}
       <div className="space-y-8 py-6">
         {/* Section 1  */}
         <div className="flex flex-col justify-center items-center space-y-5 ">
@@ -97,6 +104,7 @@ export default function ContactUs() {
                   submitForm={submitForm}
                   handleChange={handleChange}
                   formData={formData}
+                  loading={loading}
                 />
                 <div className="w-full flex items-center my-4 before:border-t before:flex-1 before:border-gray-300 after:border-t after:flex-1 after:border-gray-300">
                   <p className="text-center font-semibold mx-4">OR</p>

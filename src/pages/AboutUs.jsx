@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import FavouritesProvider from "../contexts/FavouritesContext";
 
 export default function AboutUs() {
   const members = [
@@ -26,7 +27,9 @@ export default function AboutUs() {
   return (
     <div className={`w-screen bg-[#e9ffea76] `}>
       {/* Header  */}
-      <Header />
+      <FavouritesProvider>
+        <Header />
+      </FavouritesProvider>{" "}
       {/* Section 1  */}
       <div className="flex flex-col justify-center items-center space-y-5 py-6">
         <p className="text-[44px]/[44px] font-bold font-Playfair-Display text-center ">

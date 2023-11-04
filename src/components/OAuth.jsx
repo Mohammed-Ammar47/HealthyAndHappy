@@ -32,6 +32,7 @@ export default function OAuth() {
         fullName: user.displayName,
         email: user.email,
         subscriptions: [],
+        favourites: [],
       };
       userData.timestamp = serverTimestamp();
       setDoc(doc(db, "users", user.uid), userData);

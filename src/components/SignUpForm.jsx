@@ -1,6 +1,13 @@
 import React from "react";
+import ClipLoader from "react-spinners/ClipLoader";
+import FormSubmitButton from "./FormSubmitButton";
 
-export default function SignUpForm({ submitForm, formData, handleChange }) {
+export default function SignUpForm({
+  submitForm,
+  formData,
+  handleChange,
+  loading,
+}) {
   return (
     <form className="space-y-4 text-base" onSubmit={submitForm}>
       <div className="space-y-2 flex flex-col w-full">
@@ -33,12 +40,11 @@ export default function SignUpForm({ submitForm, formData, handleChange }) {
           value={formData.password}
         />
       </div>
-      <button
-        className="font-Libre-Franklin text-base h-10 bg-[#238C69] font-medium text-white rounded-md w-full px-2.5  mt-4 hover:bg-white hover:text-[#238C69] hover:ring-2 hover:ring-[#238C69] active:ring-offset-2"
-        type="submit"
-      >
-        Submit
-      </button>
+      <FormSubmitButton
+        customStyle={"h-10 mt-2"}
+        label={"Submit"}
+        submitLoading={loading}
+      />
     </form>
   );
 }
