@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useComment } from "../../contexts/commentContext";
+import { useComment } from "../../contexts/CommentContext";
 import CommentToolBar from "./CommentToolBar";
 
 import TimeAgo from "react-timeago";

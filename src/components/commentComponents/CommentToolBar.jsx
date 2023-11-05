@@ -6,7 +6,7 @@ import {
   AiTwotoneEdit,
 } from "react-icons/ai";
 import { BsFillReplyAllFill } from "react-icons/bs";
-import { useComment } from "../../contexts/commentContext";
+import { useComment } from "../../contexts/CommentContext";
 import { Link } from "react-router-dom";
 
 export default function CommentToolBar({

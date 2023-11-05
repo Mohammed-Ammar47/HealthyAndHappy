@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CommentToolBar from "./CommentToolBar";
 import TimeAgo from "react-timeago";
 import CommentForm from "./CommentForm";
-import { useComment } from "../../contexts/commentContext";
+import { useComment } from "../../contexts/CommentContext";
 
 export default function Reply({ reply, runToolBar, user }) {
   const { setActiveComment, replyUpdate, replyDelete, likeReply } =

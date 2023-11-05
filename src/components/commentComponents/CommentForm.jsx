@@ -1,17 +1,4 @@
-import {
-  addDoc,
-  collection,
-  doc,
-  getDocs,
-  query,
-  serverTimestamp,
-  updateDoc,
-} from "firebase/firestore";
 import React, { useState } from "react";
-import { AiTwotoneHeart } from "react-icons/ai";
-import { db } from "../../Firebase";
-import { useParams } from "react-router-dom";
-import { useComment } from "../../contexts/commentContext";
 import FormSubmitButton from "../FormSubmitButton";
 
 export default function CommentForm({

@@ -1,5 +1,5 @@
 import React from "react";
-import { useComment } from "../../contexts/commentContext";
+import { useComment } from "../../contexts/CommentContext";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 
