@@ -7,7 +7,7 @@ import Spinner from "../components/Spinner";
 import { db } from "../Firebase";
 import DOMPurify from "dompurify";
 import { PiHandsClappingFill } from "react-icons/pi";
-import CommentProvider from "../contexts/commentContext";
+import CommentProvider from "../contexts/CommentContext";
 import CommentSection from "../components/commentComponents/ReviewSection";
 import RatingScorecard from "../components/RatingScorecard";
 import { HiStar, HiLogin } from "react-icons/hi";

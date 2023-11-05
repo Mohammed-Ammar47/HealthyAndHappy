@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useAuthStatus } from "../hooks/useAuthStatus";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import Spinner from "../components/Spinner";
 import { useFavourite } from "../contexts/FavouritesContext";
 import { db } from "../Firebase";
 import Header from "../components/Header";
 import AddToFavourites from "../components/bookmarkComponents/AddToFavourites";
-import CommentProvider from "../contexts/commentContext";
+import CommentProvider from "../contexts/CommentContext";
 import CommentSection from "../components/commentComponents/ReviewSection";
 import Footer from "../components/Footer";
 import SectionContent from "../components/BlogContent/SectionContent";

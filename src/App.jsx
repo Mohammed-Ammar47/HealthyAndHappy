@@ -5,10 +5,9 @@ import Recipes from "./pages/Recipes";
 import AboutUs from "./pages/AboutUs";
 import RecipePage from "./pages/RecipePage";
 import ContactUs from "./pages/ContactUs";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "reactjs-popup/dist/index.css";
-// import Update from "./Update";
 import FavouritesProvider from "./contexts/FavouritesContext";
 import Cuisines from "./pages/Cuisines";
 import CuisinesPage from "./pages/CuisinesPage";
@@ -50,7 +49,6 @@ function App() {
           />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/newsletter" element={<ContactUs />} />
-          {/* <Route path="/update" element={<Update />} /> */}
         </Routes>
       </BrowserRouter>
       <ToastContainer

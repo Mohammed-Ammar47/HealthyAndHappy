@@ -10,7 +10,7 @@ import AddToFavourites from "../components/bookmarkComponents/AddToFavourites";
 import { HiLogin, HiStar } from "react-icons/hi";
 import { PiHandsClappingFill } from "react-icons/pi";
 import RatingScorecard from "../components/RatingScorecard";
-import CommentProvider from "../contexts/commentContext";
+import CommentProvider from "../contexts/CommentContext";
 import CommentSection from "../components/commentComponents/ReviewSection";
 import Footer from "../components/Footer";
 import DOMPurify from "dompurify";

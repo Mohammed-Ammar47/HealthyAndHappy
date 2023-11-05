@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FavouritesProvider from "../contexts/FavouritesContext";
 import Header from "../components/Header";
-// [#e9ffea76]
 import Footer from "../components/Footer";
 import {
   collection,

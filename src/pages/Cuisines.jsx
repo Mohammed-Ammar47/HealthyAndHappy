@@ -4,7 +4,6 @@ import RecipeCard from "../components/RecipeCard";
 import FeaturedRecipes from "../components/FeaturedRecipes";
 import Header from "../components/Header";
 import {
-  and,
   collection,
   getDocs,
   limit,
