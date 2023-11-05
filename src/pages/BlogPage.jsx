@@ -122,6 +122,17 @@ export default function BlogPage() {
         <p className="text-2xl sm:text-[32px] font-Libre-Franklin font-semibold">
           Comment Section
         </p>
+        {!loggedIn && (
+          <div className="flex flex-row space-x-1 items-center py-5">
+            <p className="text-xl sm:text-2xl font-Libre-Franklin font-medium">
+              Log in and leave a Review{" "}
+            </p>
+            <HiLogin
+              className="text-xl sm:text-2xl text-[#238c69bc] hover:text-[#238C69]"
+              onClick={() => navigate("/newsletter")}
+            />
+          </div>
+        )}
         <div>
           <CommentProvider contentPage={"Blogs"} paramId={param.blogId}>
             <CommentSection />

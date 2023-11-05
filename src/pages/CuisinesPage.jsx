@@ -234,7 +234,7 @@ export default function CuisinesPage() {
         <p className="text-2xl sm:text-[32px] font-Libre-Franklin font-semibold">
           Review Section
         </p>
-        {}
+
         {loggedIn ? (
           !hasRated && (
             <RatingScorecard
@@ -245,12 +245,12 @@ export default function CuisinesPage() {
           )
         ) : (
           <div className="flex flex-row space-x-1 items-center py-5">
-            <p className="text-2xl font-Libre-Franklin font-medium">
+            <p className="text-xl sm:text-2xl font-Libre-Franklin font-medium">
               Log in and leave a Review{" "}
             </p>
             <HiLogin
-              className="text-2xl text-[#238c69bc] hover:text-[#238C69]"
-              onClick={() => navigate("/contact-us")}
+              className="text-xl sm:text-2xl text-[#238c69bc] hover:text-[#238C69]"
+              onClick={() => navigate("/newsletter")}
             />
           </div>
         )}
