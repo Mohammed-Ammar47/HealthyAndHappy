@@ -9,8 +9,8 @@ export default function SignUpForm({
   loading,
 }) {
   return (
-    <form className="space-y-4 text-base" onSubmit={submitForm}>
-      <div className="space-y-2 flex flex-col w-full">
+    <form className="space-y-4 text-base px-3" onSubmit={submitForm}>
+      <div className="space-y-2 flex flex-col w-full ">
         <label className="font-medium">Full Name</label>
         <input
           className="boxShadow p-1 rounded-md  focus:ring-2 focus:ring-[#238C69] outline-none appearance-none"
@@ -41,7 +41,7 @@ export default function SignUpForm({
         />
       </div>
       <FormSubmitButton
-        customStyle={"h-10 mt-2"}
+        customStyle={"h-10 mt-2 w-full"}
         label={"Submit"}
         submitLoading={loading}
       />

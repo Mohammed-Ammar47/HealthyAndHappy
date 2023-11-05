@@ -22,11 +22,11 @@ export default function FavouritesList() {
       ) : (
         <div className="px-1 py-2">
           {user !== null && (
-            <ul className="w-full bg-white  grid grid-cols-3 border-gray-400 p-0.5 rounded-lg ">
+            <ul className="w-full bg-white  grid grid-cols-2 sm:grid-cols-3 border-gray-400 p-0.5 rounded-lg ">
               {user.favourites.map((favourite, index) => (
                 <li key={index} className="w-full boxShadow relative ">
                   <div className="flex items-center p-1 ">
-                    <div className="absolute flex justify-between w-24 sm:w-28 h-24 sm:h-28 p-1 opacity-0 hover:opacity-100 hover:ring-1 hover:ring-[#238C69] hover:bg-black hover:bg-opacity-30 transition-opacity ease-in-out duration-200 rounded-lg">
+                    <div className=" absolute flex justify-between w-36 sm:w-28 h-36 sm:h-28 p-1 opacity-0 hover:opacity-100 hover:ring-1 hover:ring-[#238C69] hover:bg-black hover:bg-opacity-30 transition-opacity ease-in-out duration-200 rounded-lg">
                       <BsBoxArrowInUpRight
                         onClick={() => navigate(favourite.path)}
                         className="p-1 text-3xl rounded-md text-[#238C69] bg-white hover:bg-[#238C69] hover:text-white active:scale-110 transition-all duration-150 "
@@ -39,7 +39,7 @@ export default function FavouritesList() {
                       />
                     </div>
                     <img
-                      className="w-24 sm:w-28 h-24 sm:h-28 rounded-lg  "
+                      className="w-36 sm:w-28 h-36 sm:h-28 rounded-lg object-cover"
                       src={favourite.itemImgUrl}
                     />
                   </div>

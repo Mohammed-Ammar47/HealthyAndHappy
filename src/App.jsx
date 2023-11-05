@@ -49,7 +49,7 @@ function App() {
             }
           />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/newsletter" element={<ContactUs />} />
           {/* <Route path="/update" element={<Update />} /> */}
         </Routes>
       </BrowserRouter>

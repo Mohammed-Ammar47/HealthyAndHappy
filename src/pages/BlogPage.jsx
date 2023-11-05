@@ -50,10 +50,10 @@ export default function BlogPage() {
     <div className="bg-[#e9ffea76] ">
       {/* Header  */}
       <Header />
-      <div className=" divide-y-2 divide-[#238C69] px-60">
+      <div className=" divide-y-2 divide-[#238C69] px-5 sm:px-60">
         {/* Section 1  */}
         <div className="flex flex-col  justify-start py-6 mt-6">
-          <p className="flex text-[32px]/[32px] font-bold font-Playfair-Display text-start ">
+          <p className="flex text-2xl/7 sm:text-[32px]/[32px] font-bold font-Playfair-Display text-start ">
             {blog.title}
           </p>
           <div className="flex flex-row justify-start py-6 ">
@@ -72,21 +72,24 @@ export default function BlogPage() {
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(blog.overview),
             }}
-            className="text-lg text-[#104030] font-Roboto font-normal p-1"
+            className="text-base sm:text-lg text-[#104030] font-Roboto font-normal p-1"
           ></p>{" "}
         </div>
         {/* Section 4: the method  */}
         <div className="flex flex-col justify-start  space-y-5 py-6 ">
           <ul className="space-y-10 ">
             {blog.sections.map((section, index) => (
-              <li key={index} className="flex flex-col justify-center ">
-                <div className="text-2xl font-medium font-Libre-Franklin flex flex-row space-x-3">
+              <li
+                key={index}
+                className="flex flex-col justify-center space-y-3"
+              >
+                <div className="text-lg sm:text-2xl font-medium font-Libre-Franklin flex flex-row space-x-3">
                   <p className="text-[#238C69]">{index + 1}. </p>
                   <p>{section.sectionTitle}</p>
                 </div>
                 {section.image !== "" && (
                   <div className="rounded-lg">
-                    <div className="p-5">
+                    <div className="p-0 sm:p-5">
                       <img
                         src={section.image}
                         className=" object-cover  rounded-[2rem] shadow-[0px_3px_4px_2px_#44614D]"
@@ -103,20 +106,20 @@ export default function BlogPage() {
         </div>
         {/* Section 5: the result  */}
         <div className="flex flex-col justify-start  space-y-5 py-6 mb-6">
-          <p className=" text-[32px]/[32px] font-bold font-Playfair-Display text-start ">
+          <p className=" text-2xl/7 sm:text-[32px]/[32px] font-bold font-Playfair-Display text-start ">
             {blog.conclusion.title}
           </p>
           <p
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(blog.conclusion.content),
             }}
-            className="text-lg text-[#104030] font-Roboto font-normal p-1"
+            className="text-base sm:text-lg text-[#104030] font-Roboto font-normal p-1"
           ></p>
         </div>
       </div>
       {/* Section 6: Reviews */}
-      <div className="bg-white px-[146px] divide-y-2 divide-[#238C69]">
-        <p className="text-[32px] font-Libre-Franklin font-semibold">
+      <div className="bg-white px-5 sm:px-[146px] divide-y-2 divide-[#238C69]">
+        <p className="text-2xl sm:text-[32px] font-Libre-Franklin font-semibold">
           Comment Section
         </p>
         <div>

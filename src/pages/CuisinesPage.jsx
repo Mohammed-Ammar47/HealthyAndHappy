@@ -67,12 +67,12 @@ export default function CuisinesPage() {
     <div className="bg-[#e9ffea76] ">
       {/* Header  */}
       <Header />
-      <div className=" divide-y-2 divide-[#238C69] px-[146px]">
-        <div className="flex flex-row  justify-between py-6 mt-6">
+      <div className=" divide-y-2 divide-[#238C69] px-5 sm:px-[146px]">
+        <div className="flex flex-col sm:flex-row  justify-between py-6 mt-6">
           <div>
             {/* Section 1  */}
-            <div className="flex flex-col justify-start  space-y-4 py-6 ">
-              <p className="flex flex-row  text-[44px]/[44px] font-bold font-Playfair-Display text-start ">
+            <div className="flex flex-col justify-start  space-y-4 py-2 sm:py-6">
+              <p className="flex flex-row text-4xl/9 sm:text-[44px]/[44px] font-bold font-Playfair-Display text-start">
                 {cuisine.title}{" "}
                 <AddToFavourites
                   imageUrl={cuisine.imageUrl}
@@ -88,7 +88,7 @@ export default function CuisinesPage() {
                   {cuisine.tags.map((tag, index) => (
                     <li
                       key={index}
-                      className="drop-shadow-[0_3px_5px_rgba(0,0,0,0.5)] text-base/[18px] mx-2 my-1 px-2 py-1 flex items-center h-8 font-medium bg-white rounded-full"
+                      className="drop-shadow-[0_3px_5px_rgba(0,0,0,0.5)] text-base/[18px] mx-2 my-1 px-2 py-1 flex items-center h-8 font-medium bg-white rounded-xl sm:rounded-full"
                     >
                       {tag}
                     </li>
@@ -101,7 +101,7 @@ export default function CuisinesPage() {
                     {rating.map((rate, i) => (
                       <HiStar
                         key={i}
-                        className={`text-3xl ${
+                        className={`text-2xl sm:text-3xl ${
                           rate <= ratingAverage
                             ? "text-[#238C69]"
                             : "text-[#238c69] text-opacity-60"
@@ -113,29 +113,32 @@ export default function CuisinesPage() {
               </div>
             </div>
             {/* Section 2  */}
-            <div className="flex flex-col space-y-2">
-              <p className="text-[32px] font-medium font-Libre-Franklin">
+            <div className="flex flex-col space-y-2 py-2">
+              <p className="text-2xl sm:text-[32px] font-medium font-Libre-Franklin">
                 About the {cuisine.title}
               </p>
-              <p className="text-base font-normal font-Roboto-Slab w-[550px] text-start ">
-                {cuisine.overview}
-              </p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(cuisine.overview),
+                }}
+                className="text-base font-normal font-Roboto-Slab sm:w-[550px] text-start "
+              ></p>
             </div>
           </div>
           <img
             src={cuisine.imageUrl}
-            className="h-96 w-96 ml-12 object-cover rounded-2xl shadow-[-4px_4px_4px_0px_#44614D]"
+            className="sm:h-96 sm:w-96 sm:ml-12 object-cover rounded-2xl shadow-[-4px_4px_4px_0px_#44614D]"
           />
         </div>
         {/* Section 3: Ingredients */}
-        <div className="py-6  ">
-          <div className="bg-white rounded-xl p-2 divide-y-[1px] w-[800px] boxShadow">
+        <div className="py-6">
+          <div className="bg-white rounded-xl p-2 divide-y-[1px] sm:w-[800px] boxShadow">
             <div className="space-y-3 p-3">
               <p className="text-2xl font-medium font-Libre-Franklin">
                 The recipe for {cuisine.title}
               </p>
               <div>
-                <ul className="flex flex-row space-x-8">
+                <ul className="grid grid-cols-2 sm:grid-cols-4 ">
                   <li className="flex flex-col justify-center space-y-2 font-Libre-Franklin text-base">
                     <p className="text-[#238C69] font-semibold">Prep Time</p>
                     <p>{cuisine.duration.prepTime} mins</p>
@@ -165,24 +168,29 @@ export default function CuisinesPage() {
               <p className="text-2xl font-medium font-Libre-Franklin text-[#238C69]">
                 Ingredients
               </p>
-              <ul className="grid grid-cols-2 gap-3">
+              <ul className="grid grid-col  list-disc sm:grid-cols-2 sm:gap-3 px-2">
                 {cuisine.ingredients.map((ing, index) => (
-                  <li key={index}>{ing}</li>
+                  <li key={index} className="text-[#238C69]">
+                    <p className="text-black">{ing}</p>
+                  </li>
                 ))}
               </ul>
             </div>
           </div>
         </div>
         {/* Section 4: the method  */}
-        <div className="flex flex-col justify-start  space-y-5 py-6 ">
-          <p className="text-[44px]/[44px] font-bold font-Playfair-Display text-start">
+        <div className="flex flex-col justify-start space-y-5 py-6">
+          <p className="text-4xl/9 sm:text-[44px]/[44px] font-bold font-Playfair-Display text-start">
             How to cook it
           </p>
-          <ul className="space-y-10 ">
+          <ul className="space-y-5 sm:space-y-10">
             {cuisine.method.map((step, index) => (
-              <li key={index} className="flex flex-row justify-between">
-                <div className="w-[600px]  space-y-2">
-                  <p className="text-2xl font-medium font-Libre-Franklin flex flex-row space-x-3">
+              <li
+                key={index}
+                className="flex flex-col sm:flex-row justify-between"
+              >
+                <div className="sm:w-[600px]  space-y-2">
+                  <p className="text-xl sm:text-2xl font-medium font-Libre-Franklin flex flex-row space-x-3">
                     <p className="text-[#238C69]">{index + 1}. </p>
                     <p>{step.stepTitle}</p>
                   </p>
@@ -195,10 +203,10 @@ export default function CuisinesPage() {
                 </div>
                 {step.stepImg !== "" && (
                   <div className="rounded-lg">
-                    <div className="w-[375px] h-[250px] p-3">
+                    <div className="sm:w-[375px] sm:h-[250px] px-0 sm:px-3 py-3 aspect-[3/2]">
                       <img
                         src={step.stepImg}
-                        className=" object-cover  rounded-[2rem] shadow-[-4px_4px_4px_0px_#44614D]"
+                        className="object-cover rounded-[2rem] shadow-[-4px_4px_4px_0px_#44614D]"
                       />
                     </div>
                   </div>
@@ -208,22 +216,22 @@ export default function CuisinesPage() {
           </ul>
         </div>
         {/* Section 5: the result  */}
-        <div className="flex flex-row justify-between  space-y-5 py-6 ">
-          <div className="flex flex-row px-7">
-            <p className="text-[32px]/[32px] font-medium font-Libre-Franklin ">
+        <div className="flex flex-col sm:flex-row justify-between space-y-5 py-6 ">
+          <div className="flex flex-row sm:px-7">
+            <p className="text-2xl/7 sm:text-[32px]/[32px] font-medium font-Libre-Franklin ">
               Here's the outcome!
             </p>
-            <PiHandsClappingFill className="text-4xl iconFlip text-[#238C69] mx-1" />
+            <PiHandsClappingFill className="text-3xl sm:text-4xl iconFlip text-[#238C69] mx-1" />
           </div>
           <img
             src={cuisine.result.img}
-            className="w-[500px] aspect-[3/2] object-cover rounded-2xl mx-8 shadow-[-4px_4px_4px_0px_#44614D]"
+            className="sm:w-[500px] aspect-[3/2] object-cover rounded-2xl sm:mx-8 shadow-[-4px_4px_4px_0px_#44614D]"
           />
         </div>
       </div>
       {/* Section 6: Reviews */}
-      <div className="bg-white px-[146px] divide-y-2 divide-[#238C69]">
-        <p className="text-[32px] font-Libre-Franklin font-semibold">
+      <div className="bg-white px-5 sm:px-[146px] divide-y-2 divide-[#238C69]">
+        <p className="text-2xl sm:text-[32px] font-Libre-Franklin font-semibold">
           Review Section
         </p>
         {}

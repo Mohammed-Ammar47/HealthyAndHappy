@@ -47,7 +47,7 @@ export default function Comment({ comment }) {
         <div className="flex flex-col space-y-2 ring-2 ring-[#238C69] rounded-md p-2">
           <div className="flex flex-row space-x-1">
             <div
-              className={`w-8 h-8 font-medium flex justify-center items-center rounded-full bg-cyan-700 leading-tight`}
+              className={`w-10 h-9 font-medium flex justify-center items-center rounded-full bg-cyan-700 leading-tight`}
             >
               FS
             </div>

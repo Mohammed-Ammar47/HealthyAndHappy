@@ -13,7 +13,7 @@ export default function BookmarkSideBar({ openSidebar, setOpenSidebar }) {
         openSidebar ? "translate-x-0" : "translate-x-full"
       }  `}
     >
-      <div className="h-screen  overflow-y-auto bg-gray-50 border-b-2 border-b-[#238C69] border-l-2 border-l-[#238C69]">
+      <div className="h-screen w-screen sm:w-full overflow-y-auto bg-gray-50 border-b-2 border-b-[#238C69] border-l-2 border-l-[#238C69]">
         {/* Sidebar Header */}
         <div className="flex flex-row justify-start items-center space-x-4 px-5 py-3  bg-[#238C69]">
           <AiOutlineClose

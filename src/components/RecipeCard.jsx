@@ -20,12 +20,12 @@ export default function RecipeCard({ recipe, index, page }) {
         />
       </div>
       <div
-        className={`flex flex-col bg-white px-1.5 sm:px-2 py-2 space-y-1.5 sm:space-y-3 font-Libre-Franklin h-[166] rounded-b-3xl`}
+        className={`flex flex-col bg-white px-1.5 sm:px-2 py-2 space-y-2 sm:space-y-3 font-Libre-Franklin h-[166] rounded-b-3xl`}
       >
         <p className=" text-base/tight sm:text-2xl/tight  sm:title-truncate font-medium  sm:h-[60px]">
           {recipe.title}
         </p>
-        <p className="text-sm sm:text-base font-medium text-[#238C69]">
+        <p className="text-xs sm:text-base font-medium text-[#238C69]">
           {page === "cuisines"
             ? recipe.culture + " " + recipe.type
             : recipe.type}
@@ -33,10 +33,10 @@ export default function RecipeCard({ recipe, index, page }) {
         <div className="flex flex-col sm:flex-row sm:justify-between space-y-1 sm:space-y-0">
           <div className="flex flex-row space-x-1.5 sm:space-x-2.5">
             <img
-              className="w-5 sm:w-7 h-5 sm:h-7"
+              className="w-4 sm:w-7 h-4 sm:h-7"
               src="https://firebasestorage.googleapis.com/v0/b/healthy-and-happy-edf1e.appspot.com/o/Assets%2Fhourglass.png?alt=media&token=4d6e32f8-beb4-4c05-bca4-ada71a16c945"
             />
-            <p className="text-sm sm:text-base/relaxed">
+            <p className="text-xs sm:text-base/relaxed">
               {recipe.duration.cookTime + recipe.duration.prepTime} min
             </p>
           </div>

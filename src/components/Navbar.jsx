@@ -18,7 +18,7 @@ export default function Navbar() {
     },
     { title: "Blogs", link: "/blogs", childLink: `/blogs/${param.blogId}` },
     { title: "About Us", link: "/about-us" },
-    { title: "Contact Us", link: "/contact-us" },
+    { title: "Newsletter", link: "/newsletter" },
   ];
   const [currentPath, setCurrentPath] = useState("/");
   const location = useLocation();

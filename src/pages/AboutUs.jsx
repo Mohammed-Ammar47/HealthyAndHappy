@@ -25,29 +25,29 @@ export default function AboutUs() {
     },
   ];
   return (
-    <div className={`w-screen bg-[#e9ffea76] `}>
+    <div className={`w-screen bg-[#e9ffea] `}>
       {/* Header  */}
       <FavouritesProvider>
         <Header />
       </FavouritesProvider>{" "}
       {/* Section 1  */}
-      <div className="flex flex-col justify-center items-center space-y-5 py-6">
-        <p className="text-[44px]/[44px] font-bold font-Playfair-Display text-center ">
+      <div className="flex flex-col justify-center items-center space-y-5 py-6 px-5 sm:px-0">
+        <p className="text-4xl/9 sm:text-[44px]/[44px] font-bold font-Playfair-Display text-center ">
           About Us
         </p>
-        <p className="text-base font-medium font-Roboto-Slab w-96 text-center ">
+        <p className="text-base font-medium font-Roboto-Slab sm:w-96 text-center ">
           Our mission is to interduce you to the world of cooking and
           intricacies, allowing you to become a better cook enjoying what our
           world have to offer.
         </p>
       </div>
       {/* Section 2  */}
-      <div className="py-8 px-48 ">
+      <div className="py-8 px-5 sm:px-48 ">
         <div className="bg-white p-10 rounded-[34px] boxShadow">
           <ul className="flex flex-col space-y-10">
             {members.map((member) => (
-              <li className="flex flex-row space-x-3">
-                <img src={member.img} className="h-[100px]" />
+              <li className="flex flex-col sm:flex-row space-x-3 text-center sm:text-start items-center sm:items-start ">
+                <img src={member.img} className="h-[100px] w-[100px]" />
                 <div className="font-Roboto-Slab font-normal space-y-2">
                   <p className="text-2xl">{member.name}</p>
                   <p>{member.role}</p>

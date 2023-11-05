@@ -24,7 +24,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className=" bg-[#CFE6D7] pt-8 pb-6 sm:pt-16 sm:pb-12 space-y-12 sm:space-y-24">
+      <div className=" sm:bg-[url(https://firebasestorage.googleapis.com/v0/b/healthy-and-happy-edf1e.appspot.com/o/Assets%2FBG.png?alt=media&token=eaa1bdc5-653d-4949-b142-a213705d6013)] pt-8 pb-6 sm:pt-16 sm:pb-12 space-y-12 sm:space-y-24 bg-[#e9ffea]">
         {/* Section 2  */}
         <div className="mx-5 sm:mx-[186px] flex flex-col-reverse sm:flex-row  sm:space-x-[86px]">
           <img
@@ -98,8 +98,8 @@ export default function Home() {
             Gain insights with our blogs and articles in various food and
             cooking related topics
           </p>
-          <div className="flex flex-col sm:flex-row space-y-2.5 sm:space-x-2.5">
-            <div className="bg-white flex flex-col sm:w-[296px] sm:h-[296px] space-y-2 sm:space-y-4 text-center rounded-3xl items-center p-5">
+          <div className="flex flex-col sm:flex-row space-y-2.5 sm:space-y-0 sm:space-x-2.5">
+            <div className="bg-white flex flex-col sm:w-[296px] sm:h-[296px] space-y-2 sm:space-y-4 text-center rounded-3xl items-center p-5 boxShadow">
               <p className="text-2xl font-medium font-Roboto-Slab ">
                 Cooking Tips
               </p>
@@ -112,7 +112,7 @@ export default function Home() {
                 help you improve your cooking skills.
               </p>
             </div>
-            <div className="bg-white flex flex-col sm:w-[296px] sm:h-[296px] space-y-2 sm:space-y-4 text-center rounded-3xl items-center p-5">
+            <div className="bg-white flex flex-col sm:w-[296px] sm:h-[296px] space-y-2 sm:space-y-4 text-center rounded-3xl items-center p-5 boxShadow">
               <p className="text-2xl font-medium font-Roboto-Slab ">
                 Food and Nutrition
               </p>
@@ -125,7 +125,7 @@ export default function Home() {
                 dietary meals and their benefits
               </p>
             </div>
-            <div className="bg-white flex flex-col sm:w-[296px] sm:h-[296px] space-y-2 sm:space-y-4 text-center rounded-3xl items-center p-5">
+            <div className="bg-white flex flex-col sm:w-[296px] sm:h-[296px] space-y-2 sm:space-y-4 text-center rounded-3xl items-center p-5 boxShadow">
               <p className="text-2xl font-medium font-Roboto-Slab ">
                 Ingredient Spotlights{" "}
               </p>

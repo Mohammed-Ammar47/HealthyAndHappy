@@ -13,7 +13,7 @@ export default function AddToFavourites({ imageUrl, id }) {
   return (
     <div
       onClick={() => bookmarkItem(imageUrl, id)}
-      className="flex flex-row items-center justify-center text-[32px] px-1 "
+      className="flex flex-row items-center justify-center text-[32px] px-1 pt-3 sm:pt-0"
     >
       {bookmarked ? (
         <BsBookmarkStarFill className="text-[#238C69] transform transition-all ease-in-out hover:scale-110 active:scale-150 duration-500" />

@@ -7,7 +7,7 @@ export default function ParagraphContent({ content }) {
       dangerouslySetInnerHTML={{
         __html: DOMPurify.sanitize(content.content),
       }}
-      className="text-lg text-[#104030] font-Roboto font-normal p-1"
+      className="text-base sm:text-lg text-[#104030] font-Roboto font-normal p-1"
     ></p>
   );
 }

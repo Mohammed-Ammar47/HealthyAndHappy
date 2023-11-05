@@ -61,39 +61,39 @@ export default function ContactUs() {
   }
 
   return (
-    <div className={`w-screen bg-[#e9ffea76] `}>
+    <div className={`w-screen bg-[#e9ffea] `}>
       {/* Header  */}
       <FavouritesProvider>
         <Header />
       </FavouritesProvider>{" "}
-      <div className="space-y-8 py-6">
+      <div className="px-5 sm:px-0 space-y-8 py-6">
         {/* Section 1  */}
         <div className="flex flex-col justify-center items-center space-y-5 ">
-          <p className="text-[44px]/[44px] font-bold font-Playfair-Display text-center ">
+          <p className="text-4xl/9 sm:text-[44px]/[44px] font-bold font-Playfair-Display text-center ">
             H&H Newsletter
           </p>
-          <p className="text-base font-medium font-Roboto-Slab w-96 text-center ">
+          <p className="text-base font-medium font-Roboto-Slab sm:w-96 text-center ">
             Join our newsletter and keep yourself updated with our latest
             content, contact about any of your inquiries
           </p>
         </div>
         {/* Section 2  */}
-        <div className=" px-48 flex flex-row boxShadow justify-center-center">
+        <div className=" sm:px-48 flex flex-row boxShadow justify-center-center ">
           <img
-            className="w-[454px] rounded-l-[34px]  "
+            className="w-0 sm:w-[454px] rounded-l-[34px]"
             src="https://firebasestorage.googleapis.com/v0/b/healthy-and-happy-edf1e.appspot.com/o/Assets%2Ftop-view-american-food-with-copy-space%20(1).jpg?alt=media&token=205a686e-fc0c-4059-838a-5c4d0d1d7669"
           />
-          <div className="bg-white w-[454px] p-10 rounded-r-[34px]  space-y-3">
+          <div className="bg-white w-[454px] p-3 sm:p-10 rounded-r-[34px] rounded-[34px] sm:rounded-l-none space-y-3">
             <div>
-              <p className="text-[24px] font-Libre-Franklin font-semibold">
+              <p className="text-2xl font-Libre-Franklin font-semibold">
                 H&H Newsletter
               </p>
               {loggedIn ? (
-                <p className="text-[24px] font-Libre-Franklin font-normal">
+                <p className="text-2xl font-Libre-Franklin font-normal">
                   Sign up and join our newsletter
                 </p>
               ) : (
-                <p className="text-[24px] font-Libre-Franklin font-normal">
+                <p className="text-2xl font-Libre-Franklin font-normal">
                   Select and Join a newsletter
                 </p>
               )}

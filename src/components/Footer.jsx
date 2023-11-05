@@ -80,7 +80,7 @@ export default function Footer() {
             </div>
             <a
               className="flex space-x-2 text-base text-white  w-fit px-2.5 hover:text-[#F53733] hover:cursor-pointer"
-              onClick={() => navigate("/contact-us")}
+              onClick={() => navigate("/newsletter")}
             >
               <p className="font-Libre-Franklin hover:font-semibold hover:underline leading-4">
                 See our newsletters

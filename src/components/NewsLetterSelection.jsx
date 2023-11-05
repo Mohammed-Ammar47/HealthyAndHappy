@@ -64,7 +64,7 @@ export default function NewsLetterSelection() {
         </div>
       ) : (
         <form onSubmit={onSubmit}>
-          <div className="p-2 flex flex-col space-y-2">
+          <div className="sm:p-2 flex flex-col space-y-2">
             {/* Newsletter 1 */}
             <div
               className={`relative text-base ring-2 ring-emerald-700 p-2 rounded-lg w-full`}
@@ -139,7 +139,7 @@ export default function NewsLetterSelection() {
             </div>
           </div>
           <FormSubmitButton
-            customStyle={"h-10 mt-2"}
+            customStyle={"h-10 mt-2 w-full"}
             label={"Subscribes"}
             submitLoading={submitLoading}
           />
